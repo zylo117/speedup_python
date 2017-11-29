@@ -6,7 +6,7 @@ from __future__ import division
 import random
 import time
 
-from numpy_r.numpy_right import ma_numpy_right
+from numba_t.numba_test import ma_numba
 
 # 生成测试用的数据
 data = []
@@ -21,7 +21,7 @@ for i in range(data_length):
 start = time.time()
 
 for i in range(test_times):
-    result = ma_numpy_right(data, ma_length)
+    result = ma_numba(data, ma_length)
 
 time_per_test = (time.time() - start) / test_times
 time_per_point = time_per_test / (data_length - ma_length)
@@ -30,6 +30,6 @@ print(u'单次耗时：%s秒' % time_per_test)
 print(u'单个数据点耗时：%s微秒' % (time_per_point * 1000000))
 print(u'最后10个移动平均值：', result[-10:])
 
-# 单次耗时：1.4742793321609498秒
-# 单个数据点耗时：14.8168777101603微秒
-# 最后10个移动平均值： [50.677999999999997, 50.805999999999997, 50.838000000000001, 50.741999999999997, 50.780000000000001, 50.841999999999999, 50.822000000000003, 50.740000000000002, 50.704000000000001, 50.823999999999998]
+# 单次耗时：0.06374249458312989秒
+# 单个数据点耗时：0.6406280862626119微秒
+# 最后10个移动平均值： [50.732, 50.616, 50.62, 50.624, 50.558, 50.632, 50.538, 50.64, 50.602, 50.668]

@@ -12,7 +12,7 @@ def ma_numpy_right(data, ma_length):
 
     for new_tick in test_data:
         # 使用numpy数组的底层数据偏移来实现数据更新
-        data_window[0:ma_length-1] = data_window[1:ma_length]
+        data_window[0:ma_length - 1] = data_window[1:ma_length]
         data_window[-1] = new_tick
         ma.append(data_window.mean())
 
